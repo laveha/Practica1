@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UchPracticaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID_Client" />
+    </Key>
+    <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Osnovnaya" Relationship="Self.FK__Osnovnaya__Clien__4BAC3F29" FromRole="Clients" ToRole="Osnovnaya" />
+  </EntityType>
+  <EntityType Name="Osnovnaya">
+    <Key>
+      <PropertyRef Name="ID_Osnovnaya" />
+    </Key>
+    <Property Name="ID_Osnovnaya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Client_ID" Type="Int32" Nullable="false" />
+    <Property Name="PlaceTatu" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="PriceMaterials" Type="Int32" Nullable="false" />
+    <Property Name="PriceUslugi" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__Osnovnaya__Clien__4BAC3F29" FromRole="Osnovnaya" ToRole="Clients" />
+  </EntityType>
+  <Association Name="FK__Osnovnaya__Clien__4BAC3F29">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Osnovnaya" Type="Self.Osnovnaya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ID_Client" />
+      </Principal>
+      <Dependent Role="Osnovnaya">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UchPracticaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clients" EntityType="Self.Clients" />
+    <EntitySet Name="Osnovnaya" EntityType="Self.Osnovnaya" />
+    <AssociationSet Name="FK__Osnovnaya__Clien__4BAC3F29" Association="Self.FK__Osnovnaya__Clien__4BAC3F29">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Osnovnaya" EntitySet="Osnovnaya" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

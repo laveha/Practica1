@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище UchPracticaModelContainer" CdmEntityContainer="UchPracticaEntities">
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="UchPracticaModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Osnovnaya">
+      <EntityTypeMapping TypeName="UchPracticaModel.Osnovnaya">
+        <MappingFragment StoreEntitySet="Osnovnaya">
+          <ScalarProperty Name="ID_Osnovnaya" ColumnName="ID_Osnovnaya" />
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="PlaceTatu" ColumnName="PlaceTatu" />
+          <ScalarProperty Name="PriceMaterials" ColumnName="PriceMaterials" />
+          <ScalarProperty Name="PriceUslugi" ColumnName="PriceUslugi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

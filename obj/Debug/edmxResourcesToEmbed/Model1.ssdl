@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище UchPracticaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ID_Client" />
+    </Key>
+    <Property Name="ID_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="30" />
+    <Property Name="Number" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Osnovnaya">
+    <Key>
+      <PropertyRef Name="ID_Osnovnaya" />
+    </Key>
+    <Property Name="ID_Osnovnaya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client_ID" Type="int" Nullable="false" />
+    <Property Name="PlaceTatu" Type="varchar" MaxLength="40" />
+    <Property Name="PriceMaterials" Type="int" Nullable="false" />
+    <Property Name="PriceUslugi" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Osnovnaya__Clien__4BAC3F29">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Osnovnaya" Type="Self.Osnovnaya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ID_Client" />
+      </Principal>
+      <Dependent Role="Osnovnaya">
+        <PropertyRef Name="Client_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище UchPracticaModelContainer">
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Osnovnaya" EntityType="Self.Osnovnaya" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Osnovnaya__Clien__4BAC3F29" Association="Self.FK__Osnovnaya__Clien__4BAC3F29">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Osnovnaya" EntitySet="Osnovnaya" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
