@@ -6,9 +6,6 @@
         <MappingFragment StoreEntitySet="Clients">
           <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-          <ScalarProperty Name="Number" ColumnName="Number" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -18,8 +15,6 @@
           <ScalarProperty Name="ID_Osnovnaya" ColumnName="ID_Osnovnaya" />
           <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
           <ScalarProperty Name="PlaceTatu" ColumnName="PlaceTatu" />
-          <ScalarProperty Name="PriceMaterials" ColumnName="PriceMaterials" />
-          <ScalarProperty Name="PriceUslugi" ColumnName="PriceUslugi" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

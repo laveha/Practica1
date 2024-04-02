@@ -6,9 +6,6 @@
     </Key>
     <Property Name="ID_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="FirstName" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="MiddleName" Type="varchar" MaxLength="30" />
-    <Property Name="Number" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="Osnovnaya">
     <Key>
@@ -17,8 +14,6 @@
     <Property Name="ID_Osnovnaya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Client_ID" Type="int" Nullable="false" />
     <Property Name="PlaceTatu" Type="varchar" MaxLength="40" />
-    <Property Name="PriceMaterials" Type="int" Nullable="false" />
-    <Property Name="PriceUslugi" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK__Osnovnaya__Clien__4BAC3F29">
     <End Role="Clients" Type="Self.Clients" Multiplicity="1" />

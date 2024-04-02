@@ -88,6 +88,9 @@
     <Compile Include="Osnovnaya.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="TatSaloonUch.cs">
+      <DependentUpon>TatSaloonUch.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TatSaloonUch.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

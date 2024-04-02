@@ -4,16 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище UchPracticaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище UchPracticaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="ID_Client" />
           </Key>
           <Property Name="ID_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="MiddleName" Type="varchar" MaxLength="30" />
-          <Property Name="Number" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Osnovnaya">
           <Key>
@@ -22,8 +19,6 @@
           <Property Name="ID_Osnovnaya" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Client_ID" Type="int" Nullable="false" />
           <Property Name="PlaceTatu" Type="varchar" MaxLength="40" />
-          <Property Name="PriceMaterials" Type="int" Nullable="false" />
-          <Property Name="PriceUslugi" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Osnovnaya__Clien__4BAC3F29">
           <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
@@ -45,8 +40,7 @@
             <End Role="Osnovnaya" EntitySet="Osnovnaya" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UchPracticaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -56,9 +50,6 @@
           </Key>
           <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Osnovnaya" Relationship="Self.FK__Osnovnaya__Clien__4BAC3F29" FromRole="Clients" ToRole="Osnovnaya" />
         </EntityType>
         <EntityType Name="Osnovnaya">
@@ -68,8 +59,6 @@
           <Property Name="ID_Osnovnaya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Client_ID" Type="Int32" Nullable="false" />
           <Property Name="PlaceTatu" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="PriceMaterials" Type="Int32" Nullable="false" />
-          <Property Name="PriceUslugi" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Clients" Relationship="Self.FK__Osnovnaya__Clien__4BAC3F29" FromRole="Osnovnaya" ToRole="Clients" />
         </EntityType>
         <Association Name="FK__Osnovnaya__Clien__4BAC3F29">
@@ -103,10 +92,7 @@
               <MappingFragment StoreEntitySet="Clients">
                 <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Osnovnaya">
@@ -115,9 +101,7 @@
                 <ScalarProperty Name="ID_Osnovnaya" ColumnName="ID_Osnovnaya" />
                 <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
                 <ScalarProperty Name="PlaceTatu" ColumnName="PlaceTatu" />
-                <ScalarProperty Name="PriceMaterials" ColumnName="PriceMaterials" />
-                <ScalarProperty Name="PriceUslugi" ColumnName="PriceUslugi" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>

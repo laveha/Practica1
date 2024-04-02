@@ -17,8 +17,6 @@ namespace Practica1para
         public int ID_Osnovnaya { get; set; }
         public int Client_ID { get; set; }
         public string PlaceTatu { get; set; }
-        public int PriceMaterials { get; set; }
-        public int PriceUslugi { get; set; }
     
         public virtual Clients Clients { get; set; }
     }

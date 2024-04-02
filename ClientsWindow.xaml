@@ -9,5 +9,8 @@
     <StackPanel Orientation="Vertical" Margin="0,0,0,-6">
         <DataGrid CanUserAddRows="False" x:Name="ClientsDgr" SelectionChanged="ClientsDgr_SelectionChanged"/>
         <TextBlock x:Name="ClientsTbx"/>
+        <Button Content="Добавить" Click="Button_Click"/>
+        <Button Content="Изменить" Click="Button_Click_1"/>
+        <Button Content="Удалить" Click="Button_Click_2"/>
     </StackPanel>
 </Window>

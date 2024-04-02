@@ -6,9 +6,6 @@
     </Key>
     <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Osnovnaya" Relationship="Self.FK__Osnovnaya__Clien__4BAC3F29" FromRole="Clients" ToRole="Osnovnaya" />
   </EntityType>
   <EntityType Name="Osnovnaya">
@@ -18,8 +15,6 @@
     <Property Name="ID_Osnovnaya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Client_ID" Type="Int32" Nullable="false" />
     <Property Name="PlaceTatu" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="PriceMaterials" Type="Int32" Nullable="false" />
-    <Property Name="PriceUslugi" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Clients" Relationship="Self.FK__Osnovnaya__Clien__4BAC3F29" FromRole="Osnovnaya" ToRole="Clients" />
   </EntityType>
   <Association Name="FK__Osnovnaya__Clien__4BAC3F29">
