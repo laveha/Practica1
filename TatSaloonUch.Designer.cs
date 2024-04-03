@@ -1568,31 +1568,37 @@ SELECT ID_Osnovnaya, Client_ID, PlaceTatu FROM Osnovnaya WHERE (ID_Osnovnaya = @
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT * FROM dbo.Osnovnaya";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE FROM [dbo].[Osnovnaya] WHERE [ID_Osnovnaya] = @Original_ID_Osnovnaya";
+            this._commandCollection[1].CommandText = "SELECT Osnovnaya.ID_Osnovnaya, Osnovnaya.Client_ID, Osnovnaya.PlaceTatu, Clients." +
+                "Surname\r\nFROM     Osnovnaya INNER JOIN\r\n                  Clients ON Osnovnaya.C" +
+                "lient_ID = Clients.ID_Client";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Osnovnaya", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Osnovnaya", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO [dbo].[Osnovnaya] ([Client_ID], [PlaceTatu]) VALUES (@Client_ID, @Pla" +
-                "ceTatu)";
+            this._commandCollection[2].CommandText = "DELETE FROM [dbo].[Osnovnaya] WHERE [ID_Osnovnaya] = @Original_ID_Osnovnaya";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PlaceTatu", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "PlaceTatu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Osnovnaya", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Osnovnaya", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE [dbo].[Osnovnaya] SET [Client_ID] = @Client_ID, [PlaceTatu] = @PlaceTatu W" +
-                "HERE [ID_Osnovnaya] = @Original_ID_Osnovnaya";
+            this._commandCollection[3].CommandText = "INSERT INTO [dbo].[Osnovnaya] ([Client_ID], [PlaceTatu]) VALUES (@Client_ID, @Pla" +
+                "ceTatu)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PlaceTatu", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "PlaceTatu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Osnovnaya", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Osnovnaya", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE [dbo].[Osnovnaya] SET [Client_ID] = @Client_ID, [PlaceTatu] = @PlaceTatu W" +
+                "HERE [ID_Osnovnaya] = @Original_ID_Osnovnaya";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Client_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Client_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PlaceTatu", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "PlaceTatu", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Osnovnaya", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Osnovnaya", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1614,6 +1620,17 @@ SELECT ID_Osnovnaya, Client_ID, PlaceTatu FROM Osnovnaya WHERE (ID_Osnovnaya = @
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual TatSaloonUch.OsnovnayaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            TatSaloonUch.OsnovnayaDataTable dataTable = new TatSaloonUch.OsnovnayaDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual TatSaloonUch.OsnovnayaDataTable BeautyView() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             TatSaloonUch.OsnovnayaDataTable dataTable = new TatSaloonUch.OsnovnayaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -1759,7 +1776,7 @@ SELECT ID_Osnovnaya, Client_ID, PlaceTatu FROM Osnovnaya WHERE (ID_Osnovnaya = @
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
         public virtual int DeleteOsn(int Original_ID_Osnovnaya) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             command.Parameters[0].Value = ((int)(Original_ID_Osnovnaya));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1783,7 +1800,7 @@ SELECT ID_Osnovnaya, Client_ID, PlaceTatu FROM Osnovnaya WHERE (ID_Osnovnaya = @
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertOsn(int Client_ID, string PlaceTatu) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((int)(Client_ID));
             if ((PlaceTatu == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
@@ -1813,7 +1830,7 @@ SELECT ID_Osnovnaya, Client_ID, PlaceTatu FROM Osnovnaya WHERE (ID_Osnovnaya = @
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateOsn(int Client_ID, string PlaceTatu, int Original_ID_Osnovnaya) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             command.Parameters[0].Value = ((int)(Client_ID));
             if ((PlaceTatu == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;

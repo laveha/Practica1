@@ -107,6 +107,16 @@ SELECT ID_Osnovnaya, Client_ID, PlaceTatu FROM Osnovnaya WHERE (ID_Osnovnaya = @
               <Mapping SourceColumn="PlaceTatu" DataSetColumn="PlaceTatu" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="UchPracticaConnectionString (Settings)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="BeautyView" GetMethodModifier="Public" GetMethodName="BeautyView" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="BeautyView" UserSourceName="BeautyView">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Osnovnaya.ID_Osnovnaya, Osnovnaya.Client_ID, Osnovnaya.PlaceTatu, Clients.Surname
+FROM     Osnovnaya INNER JOIN
+                  Clients ON Osnovnaya.Client_ID = Clients.ID_Client</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="UchPracticaConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteOsn" Modifier="Public" Name="DeleteOsn" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteOsn">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -192,7 +202,7 @@ SELECT ID_Osnovnaya, Client_ID, PlaceTatu FROM Osnovnaya WHERE (ID_Osnovnaya = @
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__Osnovnaya__Clien__4BAC3F29" msdata:parent="Clients" msdata:child="Osnovnaya" msdata:parentkey="ID_Client" msdata:childkey="Client_ID" msprop:Generator_UserParentTable="Clients" msprop:Generator_UserChildTable="Osnovnaya" msprop:Generator_RelationVarName="relationFK__Osnovnaya__Clien__4BAC3F29" msprop:Generator_ChildPropName="GetOsnovnayaRows" msprop:Generator_ParentPropName="ClientsRow" msprop:Generator_UserRelationName="FK__Osnovnaya__Clien__4BAC3F29" />
+      <msdata:Relationship name="FK__Osnovnaya__Clien__4BAC3F29" msdata:parent="Clients" msdata:child="Osnovnaya" msdata:parentkey="ID_Client" msdata:childkey="Client_ID" msprop:Generator_UserParentTable="Clients" msprop:Generator_UserChildTable="Osnovnaya" msprop:Generator_RelationVarName="relationFK__Osnovnaya__Clien__4BAC3F29" msprop:Generator_ChildPropName="GetOsnovnayaRows" msprop:Generator_UserRelationName="FK__Osnovnaya__Clien__4BAC3F29" msprop:Generator_ParentPropName="ClientsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

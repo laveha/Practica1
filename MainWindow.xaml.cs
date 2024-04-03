@@ -32,12 +32,12 @@ namespace Practica1para
         {
             InitializeComponent();
             //DataSet
-            OsnDgr.ItemsSource = osn.GetData();
-            ClientsCbx.ItemsSource = clients.GetData();
+            //OsnDgr.ItemsSource = osn.BeautyView();
+            //ClientsCbx.ItemsSource = clients.GetData();
 
             //EF
-            //OsnDgr.ItemsSource = db.Osnovnaya.ToList();
-            //ClientsCbx.ItemsSource = db.Clients.ToList();
+            OsnDgr.ItemsSource = db.Osnovnaya.ToList();
+            ClientsCbx.ItemsSource = db.Clients.ToList();
         }
 
         private void OsnDgr_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -45,14 +45,14 @@ namespace Practica1para
             if (OsnDgr.SelectedItem != null)
             {
                 //DataSet
-                var dannye = (OsnDgr.SelectedItem as DataRowView).Row;
-                PLaceTbx.Text = dannye[2].ToString();
-                ClientsCbx.SelectedValue = Convert.ToInt32(dannye[1]);
+                //var dannye = (OsnDgr.SelectedItem as DataRowView).Row;
+                //PLaceTbx.Text = dannye[2].ToString();
+                //ClientsCbx.SelectedValue = Convert.ToInt32(dannye[1]);
 
                 //EF
-                //var dannye = OsnDgr.SelectedItem as Osnovnaya;
-                //PLaceTbx.Text = dannye.PlaceTatu;
-                //ClientsCbx.SelectedItem = dannye.Clients;
+                var dannye = OsnDgr.SelectedItem as Osnovnaya;
+                PLaceTbx.Text = dannye.PlaceTatu;
+                ClientsCbx.SelectedItem = dannye.Clients;
             }
         }
 
@@ -105,31 +105,37 @@ namespace Practica1para
         //    }
         //}
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            osn.InsertOsn (Convert.ToInt32(ClientsCbx.SelectedValue), PLaceTbx.Text);
-            OsnDgr.ItemsSource = osn.GetData();
-        }
+        //DT
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    osn.InsertOsn (Convert.ToInt32(ClientsCbx.SelectedValue), PLaceTbx.Text);
+        //    OsnDgr.ItemsSource = osn.GetData();
+        //}
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            if (OsnDgr.SelectedItem != null)
-            {
-                var idosn = Convert.ToInt32((OsnDgr.SelectedItem as DataRowView).Row[0]);
-                osn.UpdateOsn(Convert.ToInt32(ClientsCbx.SelectedValue), PLaceTbx.Text, idosn);
-                OsnDgr.ItemsSource = osn.GetData();
-            }
-        }
+        //private void Button_Click_2(object sender, RoutedEventArgs e)
+        //{
+        //    if (OsnDgr.SelectedItem != null)
+        //    {
+        //        var idosn = Convert.ToInt32((OsnDgr.SelectedItem as DataRowView).Row[0]);
+        //        osn.UpdateOsn(Convert.ToInt32(ClientsCbx.SelectedValue), PLaceTbx.Text, idosn);
+        //        OsnDgr.ItemsSource = osn.GetData();
+        //    }
+        //}
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
+        //private void Button_Click_3(object sender, RoutedEventArgs e)
+        //{
 
-            if (OsnDgr.SelectedItem != null)
-            {
-                var idosn = Convert.ToInt32((OsnDgr.SelectedItem as DataRowView).Row[0]);
-                osn.DeleteOsn(idosn);
-                OsnDgr.ItemsSource = osn.GetData();
-            }
-        }
+        //    if (OsnDgr.SelectedItem != null)
+        //    {
+        //        var idosn = Convert.ToInt32((OsnDgr.SelectedItem as DataRowView).Row[0]);
+        //        osn.DeleteOsn(idosn);
+        //        OsnDgr.ItemsSource = osn.GetData();
+        //    }
+        //}
+
+        //private void OsnDgr_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    OsnDgr.Columns[1].Visibility = Visibility.Hidden;
+        //}
     }
 }
